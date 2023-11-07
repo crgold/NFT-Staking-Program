@@ -42,7 +42,8 @@ To run the tests:
 2. Adjust the configuration variables in the TypeScript test file as needed.
 
 ```shell
-npx mocha path/to/test-file.tsanchor test```
+npx mocha path/to/test-file.tsanchor test
+```
 
 4. View test results and inspect transactions and NFTs on Solana Explorer using the provided URLs.
 
