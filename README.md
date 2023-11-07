@@ -40,11 +40,9 @@ To run the tests:
 
 1. Set up your Solana development environment.
 2. Adjust the configuration variables in the TypeScript test file as needed.
-3. Run the tests using a TypeScript test runner or `mocha`:
 
 ```shell
-npx mocha path/to/test-file.ts
-```
+npx mocha path/to/test-file.tsanchor test```
 
 4. View test results and inspect transactions and NFTs on Solana Explorer using the provided URLs.
 
@@ -77,10 +75,3 @@ npx mocha path/to/test-file.ts
 ### Viewing Transactions and NFTs
 
 Throughout the test suite, transaction IDs (txid) and Solana Explorer URLs are provided to view transactions and NFTs. These links help inspect and verify the operations performed by the tests.
-
----
-
-This README provides information on the Solana program and the TypeScript test suite designed to validate its functionality. The combined document offers insights into both the program and its testing procedures.
-```
-
-Please use this Markdown format for your README file, and adjust it as needed for your specific project.
