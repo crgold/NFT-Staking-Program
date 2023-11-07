@@ -1,78 +1,75 @@
 # Solana Program README
 
-This README provides information about a Solana program for creating and managing NFTs, along with instructions for testing the program using a TypeScript test suite.
+## Introduction
 
-## Solana Program
+This is the README file for the Solana program `create_nft`, which is a program designed to create, manage, and stake NFTs (Non-Fungible Tokens) on the Solana blockchain. This program is built using the Anchor framework, and it offers a variety of functionalities, including NFT creation, initialization of token mints, NFT delegation, unstaking, sending rewards, and closing NFT records.
 
-The Solana program is designed to create, delegate, stake, and manage NFTs. It utilizes the Anchor framework and the Metaplex Token Metadata program for metadata management.
+## Table of Contents
 
-### Program Structure
+- [Prerequisites](#prerequisites)
+- [Program Structure](#program-structure)
+- [Usage](#usage)
+  - [Creating an NFT](#creating-an-nft)
+  - [Initializing a Token Mint](#initializing-a-token-mint)
+  - [Delegating an NFT](#delegating-an-nft)
+  - [Unstaking an NFT](#unstaking-an-nft)
+  - [Sending Rewards](#sending-rewards)
+  - [Closing an NFT Record](#closing-an-nft-record)
+- [Error Handling](#error-handling)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Prerequisites
+
+Before using this Solana program, you should have the following prerequisites in place:
+
+- A Solana development environment set up.
+- The Anchor framework installed and configured.
+- Knowledge of Solana program development and Rust programming.
+
+## Program Structure
 
 The Solana program is structured as follows:
 
-- The main program file is `create_nft.rs`, containing entry points for NFT creation, initialization, delegation, unstaking, rewards distribution, and record closure.
-- The program is organized into distinct functions, each responsible for a specific operation.
-- The program uses multiple accounts, associated tokens, and data structures for NFT and metadata management.
+- The program entry point is defined under the `create_nft` module.
+- The program consists of several functions for different operations, including NFT creation, mint initialization, delegation, unstaking, reward distribution, and record closure.
 
-### Program Testing
+## Usage
 
-The program includes a TypeScript test suite that validates various aspects of the program's functionality. The tests cover the following scenarios:
+### Creating an NFT
 
-1. **Initialize Token Mint:** This test initializes a token mint and verifies its successful initialization.
+To create an NFT, use the `create_nft` function. It takes parameters for the NFT's name, symbol, and URI. This function creates the NFT, initializes its metadata, and mints it to the user.
 
-2. **Create and Mint NFT:** This test creates and mints an NFT, associating it with metadata. It also checks the NFT's presence on the Solana blockchain.
+### Initializing a Token Mint
 
-3. **Delegate NFT:** The test delegates the NFT to a staking authority, preparing it for staking.
+The `initialize_mint` function initializes a token mint. It sets the mint authority, metadata account, and other properties. This function is used for token mint setup.
 
-4. **Soft Stake NFT:** This test simulates staking the NFT, freezing it for staking purposes.
+### Delegating an NFT
 
-5. **Unstake NFT:** After staking, this test unfreezes the NFT, preparing it for unstaking.
+The `delegate_nft` function allows users to delegate their NFTs to another party. It uses the `approve` function to grant delegation rights to the designated authority.
 
-6. **Undelegate NFT:** The test revokes the delegation of the NFT.
+### Unstaking an NFT
 
-7. **Send Rewards:** This test calculates and sends rewards based on the NFT's staking duration.
+The `unstake_nft` function is used to unstake a previously staked NFT. It revokes delegation using the `revoke` function.
 
-8. **Close Record Account:** The test closes the NFT record account.
+### Sending Rewards
 
-### Running the Tests
+The `send_rewards` function calculates and sends rewards to the NFT holder based on the time they staked the NFT. It mints and transfers reward tokens to the user.
 
-To run the tests:
+### Closing an NFT Record
 
-1. Set up your Solana development environment.
-2. Adjust the configuration variables in the TypeScript test file as needed.
+The `close_record` function allows users to close their NFT records, indicating that they are no longer staking the NFT. This function doesn't perform any token transfers but can be used for record management.
 
-```shell
-npx mocha path/to/test-file.tsanchor test
-```
+## Error Handling
 
-4. View test results and inspect transactions and NFTs on Solana Explorer using the provided URLs.
+The program defines custom error codes, such as `TokenNotNFT` and `TokenAccountEmpty`, to handle specific error scenarios. Error messages are provided to help users understand the issues encountered during program execution.
 
-### Error Handling
+## Contributing
 
-The test suite includes assertions to check for specific conditions during testing. It helps validate the correctness of the program's operations.
+Contributions to this Solana program are welcome. If you would like to contribute, please follow the standard open-source contribution guidelines. Fork the repository, make your changes, and submit a pull request for review.
 
-### Contributions
+## License
 
-Contributions to the test suite or the Solana program are welcome. If you encounter issues or want to enhance the program's test coverage, feel free to contribute to the codebase.
+This Solana program is distributed under the open-source MIT License. You are free to use, modify, and distribute this program as per the terms of the license. For more details, please refer to the LICENSE file included in the repository.
 
-## About the TypeScript Test Suite
-
-The TypeScript test suite is designed to test the Solana program's functionality, providing a way to verify its correctness and behavior.
-
-### Running the Tests
-
-To run the tests:
-
-1. Set up the environment with Solana and Anchor.
-2. Adjust the test configuration variables as needed.
-3. Run the tests using a TypeScript test runner or `mocha`.
-
-```shell
-npx mocha path/to/test-file.ts
-```
-
-4. View test results, including transaction IDs and URLs for Solana Explorer.
-
-### Viewing Transactions and NFTs
-
-Throughout the test suite, transaction IDs (txid) and Solana Explorer URLs are provided to view transactions and NFTs. These links help inspect and verify the operations performed by the tests.
+Thank you for using the `create_nft` Solana program. If you have any questions or need further assistance, feel free to reach out to the program maintainers or the Solana community. Happy NFT management!
