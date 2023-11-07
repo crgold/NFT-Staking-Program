@@ -1,4 +1,4 @@
-# Solana Program README
+# Solana NFT Staking Program
 
 ## Introduction
 
